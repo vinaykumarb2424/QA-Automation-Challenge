@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.0.3 (Python 3.9.6 on win32)" generated="20230331 19:20:19.879" rpa="false" schemaversion="2">
+<suite id="s1" name="Flipkart" source="H:\QA-Automation-Challenge\Testcases\Flipkart\flipkart.robot">
+<test id="s1-t1" name="TC-1: Search Product and Verify">
+<kw name="Get Library Instance" library="BuiltIn">
+<var>${Client}</var>
+<arg>client1</arg>
+<doc>Returns the currently active instance of the specified test library.</doc>
+<msg timestamp="20230331 19:20:55.073" level="INFO">${Client} = &lt;Flipkart.Flipkart object at 0x00000263CA974190&gt;</msg>
+<status status="PASS" starttime="20230331 19:20:40.685" endtime="20230331 19:20:55.073"/>
+</kw>
+<kw name="Set Suite Variable" library="BuiltIn">
+<arg>${Client}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<msg timestamp="20230331 19:20:55.075" level="INFO">${Client} = &lt;Flipkart.Flipkart object at 0x00000263CA974190&gt;</msg>
+<status status="PASS" starttime="20230331 19:20:55.074" endtime="20230331 19:20:55.076"/>
+</kw>
+<kw name="I do search product and verify" library="flipkart">
+<arg>${Client}</arg>
+<arg>${product}</arg>
+<kw name="Call Method" library="BuiltIn">
+<arg>${Client}</arg>
+<arg>search_product</arg>
+<arg>${product_name}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230331 19:20:55.079" level="INFO">login pop up closing</msg>
+<msg timestamp="20230331 19:20:55.869" level="INFO">close pop up clicked</msg>
+<msg timestamp="20230331 19:21:01.183" level="INFO">searching samsung mobiles</msg>
+<msg timestamp="20230331 19:21:01.394" level="INFO">search Button clicked</msg>
+<status status="PASS" starttime="20230331 19:20:55.078" endtime="20230331 19:21:01.394"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<arg>${Client}</arg>
+<arg>verify_product_search</arg>
+<arg>${product_name}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230331 19:21:03.094" level="INFO">products listed</msg>
+<status status="PASS" starttime="20230331 19:21:01.394" endtime="20230331 19:21:03.094"/>
+</kw>
+<status status="PASS" starttime="20230331 19:20:55.076" endtime="20230331 19:21:03.095"/>
+</kw>
+<status status="PASS" starttime="20230331 19:20:40.684" endtime="20230331 19:21:03.096"/>
+</test>
+<test id="s1-t2" name="TC-2: Filter price and Verify">
+<kw name="I do filter the price" library="flipkart">
+<arg>${Client}</arg>
+<arg>₹20000</arg>
+<kw name="Call Method" library="BuiltIn">
+<arg>${Client}</arg>
+<arg>filter_products</arg>
+<arg>${price}</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230331 19:21:03.187" level="INFO">default text:Showing 1 – 24 of 557 results for "samsung mobiles"</msg>
+<msg timestamp="20230331 19:21:08.603" level="INFO">text_after_filter:Showing 1 – 24 of 338 results for "samsung mobiles"</msg>
+<msg timestamp="20230331 19:21:08.603" level="INFO">filter successful</msg>
+<status status="PASS" starttime="20230331 19:21:03.102" endtime="20230331 19:21:08.603"/>
+</kw>
+<status status="PASS" starttime="20230331 19:21:03.101" endtime="20230331 19:21:08.603"/>
+</kw>
+<status status="PASS" starttime="20230331 19:21:03.098" endtime="20230331 19:21:08.604"/>
+</test>
+<test id="s1-t3" name="TC-3: View the product from the list">
+<kw name="I do View the product from the list" library="flipkart">
+<arg>${Client}</arg>
+<arg>1</arg>
+<kw name="Call Method" library="BuiltIn">
+<arg>${Client}</arg>
+<arg>click_3rd_product</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230331 19:21:08.642" level="INFO">page_title_before: Samsung Mobiles- Buy Products Online at Best Price in India - All Categories | Flipkart.com</msg>
+<msg timestamp="20230331 19:21:09.038" level="INFO">product_text_before_open: Add to Compare
+SAMSUNG Galaxy F04 (Jade Purple, 64 GB)
+4.45,937 Ratings &amp; 219 Reviews
+4 GB RAM | 64 GB ROM | Expandable Upto 1 TB
+16.51 cm (6.5 inch) HD Display
+13MP + 2MP | 5MP Front Camera
+5000 mAh Lithium-Ion Battery
+Mediatek Helio P35 Processor
+1 Year Manufacturer Warranty for Device and 6 Months Manufacturer Warranty for In-Box Accessories
+₹7,499
+₹11,49934% off
+Free delivery
+Upto 
+₹6,950
+ Off on Exchange
+Bank Offer</msg>
+<msg timestamp="20230331 19:21:13.531" level="INFO">page_title_after: SAMSUNG Galaxy F04 ( 64 GB Storage, 4 GB RAM ) Online at Best Price On Flipkart.com</msg>
+<msg timestamp="20230331 19:21:13.768" level="INFO">Failed to log following message properly: product open successful</msg>
+<status status="PASS" starttime="20230331 19:21:08.606" endtime="20230331 19:21:13.769"/>
+</kw>
+<status status="PASS" starttime="20230331 19:21:08.606" endtime="20230331 19:21:13.769"/>
+</kw>
+<status status="PASS" starttime="20230331 19:21:08.605" endtime="20230331 19:21:13.770"/>
+</test>
+<test id="s1-t4" name="TC-4: Add product to the cart and verify">
+<kw name="I do add product to the cart and verify" library="flipkart">
+<var>${result}</var>
+<arg>${Client}</arg>
+<kw name="Call Method" library="BuiltIn">
+<arg>${Client}</arg>
+<arg>add_cart</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230331 19:21:23.787" level="INFO">SAMSUNG Galaxy F04 ( 64 GB Storage, 4 GB RAM ) Online at Best Price On Flipkart.com</msg>
+<msg timestamp="20230331 19:21:23.787" level="INFO">window switched</msg>
+<status status="PASS" starttime="20230331 19:21:13.773" endtime="20230331 19:21:43.966"/>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<var>${result}</var>
+<arg>${Client}</arg>
+<arg>verify_cart</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<msg timestamp="20230331 19:21:47.073" level="INFO">${result} = cart verified successfully</msg>
+<status status="PASS" starttime="20230331 19:21:43.966" endtime="20230331 19:21:47.073"/>
+</kw>
+<msg timestamp="20230331 19:21:47.074" level="INFO">${result} = cart verified successfully</msg>
+<status status="PASS" starttime="20230331 19:21:13.772" endtime="20230331 19:21:47.074"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230331 19:21:47.074" endtime="20230331 19:21:47.075"/>
+</kw>
+<status status="PASS" starttime="20230331 19:21:13.772" endtime="20230331 19:21:47.075"/>
+</test>
+<status status="PASS" starttime="20230331 19:20:19.882" endtime="20230331 19:21:47.077"/>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" skip="0" id="s1" name="Flipkart">Flipkart</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
